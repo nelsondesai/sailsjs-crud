@@ -1,4 +1,104 @@
-.container
-{
-    @include outer-container(100%);
+﻿$error-color: #ff0000;
+
+html, body { height: 100%; }
+[ng-cloak] { display: none !important }
+
+.container {
+    @include outer-container(80%);
+
+    height: 100%;
+
+    & > header {
+        @include row();
+
+    }
+}
+
+.content {
+    @include span-columns(12);
+}
+
+.charts {
+    @include row();
+
+    height: 100%;
+
+    &.loading {
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .loader {
+        display: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: rgba(255, 255, 255, .5);
+    }
+
+    article {
+        @include span-columns(3);
+
+        max-height: 21em;
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 2em;
+        }
+
+        canvas {
+            @include fill-parent();
+        }
+    }
+}
+
+form {
+    @include row();
+}
+
+legend {
+    position: absolute;
+    left: -9999em;
+}
+
+label {
+    margin-bottom: 30px;
+}
+
+
+fieldset {
+    @include span-columns(12);
+
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    input {
+        margin-bottom: 15px;
+        width: 100%;
+        border: 1px solid #ccc;
+        height: 30px;
+        border-radius: 3px;
+        display: block;
+        padding: 3px;
+
+        &.error {
+            border-color: $error-color;
+        }
+
+        &.ng-dirty {
+            border: 1px solid #ccc;
+        }
+    }
+
+}
+
+p.error {
+    margin: 0;
+    color: $error-color;
+    float: right;
 }
