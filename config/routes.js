@@ -32,9 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: false
-  }
+  // '/': {
+  //   view: false
+  // }
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,6 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  'GET /signin' : { view:'signin' },
+  'POST /signin' : 'UserController.signin'
 };
